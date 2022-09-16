@@ -12,6 +12,9 @@ public class User {
         this.password = password;
         this.email = email;
     }
+    public User() {
+
+    }
 
     public int getId() {
         return id;
