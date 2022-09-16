@@ -13,14 +13,6 @@ public class DbUtil {
         return conn;
     }
 
-//    public static Connection connect(String databaseName) throws SQLException {
-//
-//    String url = String.format("jdbc:mysql://localhost:3306/%s?useSSL=false&characterEncoding=utf8&serverTimezone=UTC", databaseName);
-//        Connection conn = DriverManager.getConnection(
-//                url, DB_USER, DB_PASS);
-//        return conn;
-//    }
-
     public static void insert(Connection conn, String query, String... params) {
         try (PreparedStatement statement = conn.prepareStatement(query)) {
             for (int i = 0; i < params.length; i++) {
@@ -46,22 +38,4 @@ public class DbUtil {
             e.printStackTrace();
         }
     }
-
-    private static final String DELETE_QUERY = "DELETE FROM tableName where id = ?";
-
-
-    public static void remove(Connection conn, String tableName, int id) {
-
-        try (PreparedStatement statement =
-                     conn.prepareStatement(DELETE_QUERY.replace("tableName", tableName));) {
-            statement.setInt(1, id);
-            statement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
 }
-
-
