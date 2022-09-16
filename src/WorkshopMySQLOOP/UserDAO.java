@@ -1,5 +1,7 @@
 package WorkshopMySQLOOP;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.sql.*;
 import java.util.Arrays;
 
@@ -105,6 +107,11 @@ public class UserDAO {
 
     private static boolean exist(int id) {
         return read(id) != null ? true : false;
+    }
+
+    public static String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+
     }
 }
 
