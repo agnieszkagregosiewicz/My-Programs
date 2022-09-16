@@ -15,9 +15,9 @@ public class MainUser {
 //            System.err.println(e.getMessage());
 //        }
         user.setName("Jaś");
-        user.setPassword("haslo");
-        user.setEmail("jas@gmail.com");
-        //       UserDAO.create(user);
+        user.setPassword(UserDAO.hashPassword("haslo"));
+        user.setEmail("jas2@gmail.com");
+        UserDAO.create(user);
         //user.setId(9);
 //        try {
 //            UserDAO.update(user);
